@@ -41,7 +41,9 @@ with open("input.txt") as fp:
             break
         
         line_object = Line(*extract_points(line))
-        lines.append(line_object)
+
+        if line_object.is_horizontal or line_object.is_vertical:
+            lines.append(line_object)
 
 for line in lines:
     for point in line.covered_points:
